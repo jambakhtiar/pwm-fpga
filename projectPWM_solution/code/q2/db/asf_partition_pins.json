@@ -1,0 +1,101 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "o_miso",
+					"strict" : false
+				},
+				{
+					"name" : "pwm_out_ch1",
+					"strict" : false
+				},
+				{
+					"name" : "ch1_done",
+					"strict" : false
+				},
+				{
+					"name" : "pwm_out_ch2",
+					"strict" : false
+				},
+				{
+					"name" : "ch2_done",
+					"strict" : false
+				},
+				{
+					"name" : "pwm_out_ch3",
+					"strict" : false
+				},
+				{
+					"name" : "ch3_done",
+					"strict" : false
+				},
+				{
+					"name" : "pwm_out_ch4",
+					"strict" : false
+				},
+				{
+					"name" : "ch4_done",
+					"strict" : false
+				},
+				{
+					"name" : "i_clk",
+					"strict" : false
+				},
+				{
+					"name" : "i_reset",
+					"strict" : false
+				},
+				{
+					"name" : "i_tx_data[7]",
+					"strict" : false
+				},
+				{
+					"name" : "i_rst",
+					"strict" : false
+				},
+				{
+					"name" : "i_ss_n",
+					"strict" : false
+				},
+				{
+					"name" : "i_sck",
+					"strict" : false
+				},
+				{
+					"name" : "i_tx_data[2]",
+					"strict" : false
+				},
+				{
+					"name" : "i_tx_data[0]",
+					"strict" : false
+				},
+				{
+					"name" : "i_tx_data[3]",
+					"strict" : false
+				},
+				{
+					"name" : "i_tx_data[1]",
+					"strict" : false
+				},
+				{
+					"name" : "i_tx_data[6]",
+					"strict" : false
+				},
+				{
+					"name" : "i_tx_data[4]",
+					"strict" : false
+				},
+				{
+					"name" : "i_tx_data[5]",
+					"strict" : false
+				},
+				{
+					"name" : "i_mosi",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

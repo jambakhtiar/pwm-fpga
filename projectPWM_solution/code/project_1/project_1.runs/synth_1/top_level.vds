@@ -1,0 +1,252 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Fri Aug  9 09:02:20 2024
+# Process ID: 20475
+# Current directory: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.runs/synth_1
+# Command line: vivado -log top_level.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_level.tcl
+# Log file: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.runs/synth_1/top_level.vds
+# Journal file: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.runs/synth_1/vivado.jou
+# Running On: jam-Precision-5510, OS: Linux, CPU Frequency: 3495.047 MHz, CPU Physical cores: 4, Host memory: 16397 MB
+#-----------------------------------------------------------
+source top_level.tcl -notrace
+create_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1380.227 ; gain = 35.836 ; free physical = 2398 ; free virtual = 10959
+Command: read_checkpoint -auto_incremental -incremental /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/utils_1/imports/synth_1/top_level.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/utils_1/imports/synth_1/top_level.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top top_level -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 20521
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1803.785 ; gain = 407.715 ; free physical = 1707 ; free virtual = 10267
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top_level' [/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/top_level.v:1]
+INFO: [Synth 8-6157] synthesizing module 'spi_slave' [/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/spi_slave .v:4]
+	Parameter CPOL bound to: 1'b0 
+	Parameter CPHA bound to: 1'b0 
+	Parameter WIDTH bound to: 8 - type: integer 
+	Parameter LSB bound to: 1'b0 
+INFO: [Synth 8-6155] done synthesizing module 'spi_slave' (0#1) [/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/spi_slave .v:4]
+INFO: [Synth 8-6157] synthesizing module 'PWM_RegInterfacefifo' [/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/PWM_RegInterfacefifo.v:2]
+	Parameter WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'sync_fifo' [/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/sync_fifo .v:4]
+	Parameter WIDTH bound to: 8 - type: integer 
+	Parameter DEPTH bound to: 8 - type: integer 
+INFO: [Synth 8-226] default block is never used [/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/sync_fifo .v:30]
+INFO: [Synth 8-6155] done synthesizing module 'sync_fifo' (0#1) [/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/sync_fifo .v:4]
+INFO: [Synth 8-6155] done synthesizing module 'PWM_RegInterfacefifo' (0#1) [/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/PWM_RegInterfacefifo.v:2]
+WARNING: [Synth 8-689] width (9) of port connection 'o_duty_cycle' does not match port width (8) of module 'PWM_RegInterfacefifo' [/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/top_level.v:67]
+INFO: [Synth 8-6157] synthesizing module 'Pwm_In' [/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/Pwm_In.v:4]
+	Parameter R bound to: 8 - type: integer 
+	Parameter TimerBits bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Timer_In' [/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/Timer_In.v:4]
+	Parameter Bits bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Timer_In' (0#1) [/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/Timer_In.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'Pwm_In' (0#1) [/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/Pwm_In.v:4]
+WARNING: [Synth 8-689] width (9) of port connection 'o_duty_cycle' does not match port width (8) of module 'PWM_RegInterfacefifo' [/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/top_level.v:94]
+WARNING: [Synth 8-689] width (9) of port connection 'o_duty_cycle' does not match port width (8) of module 'PWM_RegInterfacefifo' [/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/top_level.v:121]
+WARNING: [Synth 8-689] width (9) of port connection 'o_duty_cycle' does not match port width (8) of module 'PWM_RegInterfacefifo' [/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/top_level.v:148]
+INFO: [Synth 8-6155] done synthesizing module 'top_level' (0#1) [/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/top_level.v:1]
+WARNING: [Synth 8-3848] Net tx_data in module/entity top_level does not have driver. [/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/top_level.v:23]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1879.723 ; gain = 483.652 ; free physical = 1608 ; free virtual = 10170
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1897.535 ; gain = 501.465 ; free physical = 1608 ; free virtual = 10170
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1905.539 ; gain = 509.469 ; free physical = 1608 ; free virtual = 10170
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1914.445 ; gain = 518.375 ; free physical = 1589 ; free virtual = 10151
+---------------------------------------------------------------------------------
+INFO: [Synth 8-223] decloning instance 'fifo_inst_ch1' (PWM_RegInterfacefifo) to 'fifo_inst_ch2'
+INFO: [Synth 8-223] decloning instance 'fifo_inst_ch1' (PWM_RegInterfacefifo) to 'fifo_inst_ch3'
+INFO: [Synth 8-223] decloning instance 'fifo_inst_ch1' (PWM_RegInterfacefifo) to 'fifo_inst_ch4'
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input    8 Bit       Adders := 12    
+	   2 Input    4 Bit       Adders := 2     
+	   2 Input    3 Bit       Adders := 5     
++---Registers : 
+	                9 Bit    Registers := 4     
+	                8 Bit    Registers := 15    
+	                4 Bit    Registers := 2     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 14    
++---RAMs : 
+	               64 Bit	(8 X 8 bit)          RAMs := 2     
++---Muxes : 
+	   2 Input    8 Bit        Muxes := 4     
+	   2 Input    3 Bit        Muxes := 1     
+	   4 Input    2 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 17    
+	   4 Input    1 Bit        Muxes := 3     
+	   3 Input    1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2058.773 ; gain = 662.703 ; free physical = 1441 ; free virtual = 10006
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2058.773 ; gain = 662.703 ; free physical = 1441 ; free virtual = 10005
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2058.773 ; gain = 662.703 ; free physical = 1440 ; free virtual = 10004
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2058.773 ; gain = 662.703 ; free physical = 1428 ; free virtual = 9992
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2058.773 ; gain = 662.703 ; free physical = 1428 ; free virtual = 9992
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2058.773 ; gain = 662.703 ; free physical = 1428 ; free virtual = 9992
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2058.773 ; gain = 662.703 ; free physical = 1428 ; free virtual = 9992
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2058.773 ; gain = 662.703 ; free physical = 1428 ; free virtual = 9992
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2058.773 ; gain = 662.703 ; free physical = 1428 ; free virtual = 9992
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |BUFG |     1|
+|2     |LUT1 |     6|
+|3     |LUT2 |    12|
+|4     |LUT3 |    14|
+|5     |LUT4 |     9|
+|6     |LUT5 |     5|
+|7     |LUT6 |    13|
+|8     |FDCE |     4|
+|9     |FDPE |    32|
+|10    |FDRE |    15|
+|11    |FDSE |     1|
+|12    |IBUF |     4|
+|13    |OBUF |     9|
++------+-----+------+
+
+Report Instance Areas: 
++------+---------------------+---------------------+------+
+|      |Instance             |Module               |Cells |
++------+---------------------+---------------------+------+
+|1     |top                  |                     |   125|
+|2     |  fifo_inst_ch1      |PWM_RegInterfacefifo |    22|
+|3     |    duty_cycle_fifo  |sync_fifo            |    13|
+|4     |    switch_freq_fifo |sync_fifo_3          |     9|
+|5     |  pwm_inst_ch1       |Pwm_In               |    18|
+|6     |  pwm_inst_ch2       |Pwm_In_0             |    18|
+|7     |  pwm_inst_ch3       |Pwm_In_1             |    18|
+|8     |  pwm_inst_ch4       |Pwm_In_2             |    18|
+|9     |  spi_inst           |spi_slave            |    17|
++------+---------------------+---------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2058.773 ; gain = 662.703 ; free physical = 1428 ; free virtual = 9992
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 6 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2058.773 ; gain = 662.703 ; free physical = 1427 ; free virtual = 9992
+Synthesis Optimization Complete : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2058.781 ; gain = 662.703 ; free physical = 1427 ; free virtual = 9992
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2061.742 ; gain = 0.000 ; free physical = 1723 ; free virtual = 10288
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2198.426 ; gain = 0.000 ; free physical = 1677 ; free virtual = 10242
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 56a66ff3
+INFO: [Common 17-83] Releasing license: Synthesis
+30 Infos, 6 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:16 . Memory (MB): peak = 2198.461 ; gain = 814.266 ; free physical = 1676 ; free virtual = 10241
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1715.766; main = 1467.144; forked = 378.608
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3049.023; main = 2198.430; forked = 990.246
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2222.438 ; gain = 0.000 ; free physical = 1676 ; free virtual = 10241
+INFO: [Common 17-1381] The checkpoint '/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.runs/synth_1/top_level.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file top_level_utilization_synth.rpt -pb top_level_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri Aug  9 09:02:49 2024...

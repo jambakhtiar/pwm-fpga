@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Fri Aug  9 09:02:20 2024
+# Process ID: 20475
+# Current directory: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.runs/synth_1
+# Command line: vivado -log top_level.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_level.tcl
+# Log file: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.runs/synth_1/top_level.vds
+# Journal file: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.runs/synth_1/vivado.jou
+# Running On: jam-Precision-5510, OS: Linux, CPU Frequency: 3495.047 MHz, CPU Physical cores: 4, Host memory: 16397 MB
+#-----------------------------------------------------------
+source top_level.tcl -notrace

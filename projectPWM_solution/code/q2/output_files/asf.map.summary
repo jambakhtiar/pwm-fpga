@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Fri Aug  9 12:37:13 2024
+Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+Revision Name : asf
+Top-level Entity Name : top_level
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 130
+Total pins : 23
+Total virtual pins : 0
+Total block memory bits : 256
+Total DSP Blocks : 0
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0
+Total DLLs : 0

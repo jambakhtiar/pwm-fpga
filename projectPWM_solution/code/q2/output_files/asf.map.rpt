@@ -1,0 +1,1389 @@
+Analysis & Synthesis report for asf
+Fri Aug  9 12:37:13 2024
+Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Registers Packed Into Inferred Megafunctions
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0|altsyncram_2qp1:auto_generated
+ 16. Source assignments for PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0|altsyncram_2qp1:auto_generated
+ 17. Source assignments for PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0|altsyncram_2qp1:auto_generated
+ 18. Source assignments for PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0|altsyncram_2qp1:auto_generated
+ 19. Parameter Settings for User Entity Instance: Top-level Entity: |top_level
+ 20. Parameter Settings for User Entity Instance: spi_slave:spi_inst
+ 21. Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch1
+ 22. Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo
+ 23. Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:switch_freq_fifo
+ 24. Parameter Settings for User Entity Instance: Pwm_In:pwm_inst_ch1
+ 25. Parameter Settings for User Entity Instance: Pwm_In:pwm_inst_ch1|Timer_In:timer0
+ 26. Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch2
+ 27. Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo
+ 28. Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:switch_freq_fifo
+ 29. Parameter Settings for User Entity Instance: Pwm_In:pwm_inst_ch2
+ 30. Parameter Settings for User Entity Instance: Pwm_In:pwm_inst_ch2|Timer_In:timer0
+ 31. Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch3
+ 32. Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo
+ 33. Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:switch_freq_fifo
+ 34. Parameter Settings for User Entity Instance: Pwm_In:pwm_inst_ch3
+ 35. Parameter Settings for User Entity Instance: Pwm_In:pwm_inst_ch3|Timer_In:timer0
+ 36. Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch4
+ 37. Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo
+ 38. Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:switch_freq_fifo
+ 39. Parameter Settings for User Entity Instance: Pwm_In:pwm_inst_ch4
+ 40. Parameter Settings for User Entity Instance: Pwm_In:pwm_inst_ch4|Timer_In:timer0
+ 41. Parameter Settings for Inferred Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0
+ 42. Parameter Settings for Inferred Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0
+ 43. Parameter Settings for Inferred Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0
+ 44. Parameter Settings for Inferred Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0
+ 45. altsyncram Parameter Settings by Entity Instance
+ 46. Port Connectivity Checks: "Pwm_In:pwm_inst_ch4"
+ 47. Port Connectivity Checks: "PWM_RegInterfacefifo:fifo_inst_ch4"
+ 48. Port Connectivity Checks: "Pwm_In:pwm_inst_ch3"
+ 49. Port Connectivity Checks: "PWM_RegInterfacefifo:fifo_inst_ch3"
+ 50. Port Connectivity Checks: "Pwm_In:pwm_inst_ch2"
+ 51. Port Connectivity Checks: "PWM_RegInterfacefifo:fifo_inst_ch2"
+ 52. Port Connectivity Checks: "Pwm_In:pwm_inst_ch1|Timer_In:timer0"
+ 53. Port Connectivity Checks: "Pwm_In:pwm_inst_ch1"
+ 54. Port Connectivity Checks: "PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:switch_freq_fifo"
+ 55. Port Connectivity Checks: "PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo"
+ 56. Port Connectivity Checks: "PWM_RegInterfacefifo:fifo_inst_ch1"
+ 57. Port Connectivity Checks: "spi_slave:spi_inst"
+ 58. Post-Synthesis Netlist Statistics for Top Partition
+ 59. Elapsed Time Per Partition
+ 60. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++---------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Fri Aug  9 12:37:13 2024          ;
+; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
+; Revision Name                   ; asf                                            ;
+; Top-level Entity Name           ; top_level                                      ;
+; Family                          ; Cyclone V                                      ;
+; Logic utilization (in ALMs)     ; N/A                                            ;
+; Total registers                 ; 130                                            ;
+; Total pins                      ; 23                                             ;
+; Total virtual pins              ; 0                                              ;
+; Total block memory bits         ; 256                                            ;
+; Total DSP Blocks                ; 0                                              ;
+; Total HSSI RX PCSs              ; 0                                              ;
+; Total HSSI PMA RX Deserializers ; 0                                              ;
+; Total HSSI TX PCSs              ; 0                                              ;
+; Total HSSI PMA TX Serializers   ; 0                                              ;
+; Total PLLs                      ; 0                                              ;
+; Total DLLs                      ; 0                                              ;
++---------------------------------+------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
+; Top-level entity name                                                           ; top_level          ; asf                ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                         ;
++---------------------------------------------------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                                          ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                            ; Library ;
++---------------------------------------------------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------+---------+
+; ../project_1/project_1.srcs/sources_1/imports/code/top_level.v            ; yes             ; User Verilog HDL File        ; /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/top_level.v            ;         ;
+; ../project_1/project_1.srcs/sources_1/imports/code/Timer_In.v             ; yes             ; User Verilog HDL File        ; /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/Timer_In.v             ;         ;
+; ../project_1/project_1.srcs/sources_1/imports/code/sync_fifo .v           ; yes             ; User Verilog HDL File        ; /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/sync_fifo .v           ;         ;
+; ../project_1/project_1.srcs/sources_1/imports/code/spi_slave .v           ; yes             ; User Verilog HDL File        ; /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/spi_slave .v           ;         ;
+; ../project_1/project_1.srcs/sources_1/imports/code/PWM_RegInterfacefifo.v ; yes             ; User Verilog HDL File        ; /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/PWM_RegInterfacefifo.v ;         ;
+; ../project_1/project_1.srcs/sources_1/imports/code/Pwm_In.v               ; yes             ; User Verilog HDL File        ; /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/Pwm_In.v               ;         ;
+; altsyncram.tdf                                                            ; yes             ; Megafunction                 ; /home/jam/altera/quartus/libraries/megafunctions/altsyncram.tdf                                                         ;         ;
+; stratix_ram_block.inc                                                     ; yes             ; Megafunction                 ; /home/jam/altera/quartus/libraries/megafunctions/stratix_ram_block.inc                                                  ;         ;
+; lpm_mux.inc                                                               ; yes             ; Megafunction                 ; /home/jam/altera/quartus/libraries/megafunctions/lpm_mux.inc                                                            ;         ;
+; lpm_decode.inc                                                            ; yes             ; Megafunction                 ; /home/jam/altera/quartus/libraries/megafunctions/lpm_decode.inc                                                         ;         ;
+; aglobal231.inc                                                            ; yes             ; Megafunction                 ; /home/jam/altera/quartus/libraries/megafunctions/aglobal231.inc                                                         ;         ;
+; a_rdenreg.inc                                                             ; yes             ; Megafunction                 ; /home/jam/altera/quartus/libraries/megafunctions/a_rdenreg.inc                                                          ;         ;
+; altrom.inc                                                                ; yes             ; Megafunction                 ; /home/jam/altera/quartus/libraries/megafunctions/altrom.inc                                                             ;         ;
+; altram.inc                                                                ; yes             ; Megafunction                 ; /home/jam/altera/quartus/libraries/megafunctions/altram.inc                                                             ;         ;
+; altdpram.inc                                                              ; yes             ; Megafunction                 ; /home/jam/altera/quartus/libraries/megafunctions/altdpram.inc                                                           ;         ;
+; db/altsyncram_2qp1.tdf                                                    ; yes             ; Auto-Generated Megafunction  ; /home/jam/Downloads/PWM/projectPWM_solution/code/q2/db/altsyncram_2qp1.tdf                                              ;         ;
++---------------------------------------------------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimate of Logic utilization (ALMs needed) ; 79          ;
+;                                             ;             ;
+; Combinational ALUT usage for logic          ; 76          ;
+;     -- 7 input functions                    ; 3           ;
+;     -- 6 input functions                    ; 13          ;
+;     -- 5 input functions                    ; 11          ;
+;     -- 4 input functions                    ; 9           ;
+;     -- <=3 input functions                  ; 40          ;
+;                                             ;             ;
+; Dedicated logic registers                   ; 130         ;
+;                                             ;             ;
+; I/O pins                                    ; 23          ;
+; Total MLAB memory bits                      ; 0           ;
+; Total block memory bits                     ; 256         ;
+;                                             ;             ;
+; Total DSP Blocks                            ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; i_clk~input ;
+; Maximum fan-out                             ; 162         ;
+; Total fan-out                               ; 1113        ;
+; Average fan-out                             ; 3.92        ;
++---------------------------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                          ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                            ; Entity Name          ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+; |top_level                                   ; 76 (0)              ; 130 (0)                   ; 256               ; 0          ; 23   ; 0            ; |top_level                                                                                                                     ; top_level            ; work         ;
+;    |PWM_RegInterfacefifo:fifo_inst_ch1|      ; 11 (0)              ; 18 (8)                    ; 64                ; 0          ; 0    ; 0            ; |top_level|PWM_RegInterfacefifo:fifo_inst_ch1                                                                                  ; PWM_RegInterfacefifo ; work         ;
+;       |sync_fifo:duty_cycle_fifo|            ; 10 (10)             ; 10 (10)                   ; 64                ; 0          ; 0    ; 0            ; |top_level|PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo                                                        ; sync_fifo            ; work         ;
+;          |altsyncram:r_fifo_rtl_0|           ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0                                ; altsyncram           ; work         ;
+;             |altsyncram_2qp1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0|altsyncram_2qp1:auto_generated ; altsyncram_2qp1      ; work         ;
+;       |sync_fifo:switch_freq_fifo|           ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:switch_freq_fifo                                                       ; sync_fifo            ; work         ;
+;    |PWM_RegInterfacefifo:fifo_inst_ch2|      ; 0 (0)               ; 8 (8)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|PWM_RegInterfacefifo:fifo_inst_ch2                                                                                  ; PWM_RegInterfacefifo ; work         ;
+;       |sync_fifo:duty_cycle_fifo|            ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo                                                        ; sync_fifo            ; work         ;
+;          |altsyncram:r_fifo_rtl_0|           ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0                                ; altsyncram           ; work         ;
+;             |altsyncram_2qp1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0|altsyncram_2qp1:auto_generated ; altsyncram_2qp1      ; work         ;
+;    |PWM_RegInterfacefifo:fifo_inst_ch3|      ; 0 (0)               ; 8 (8)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|PWM_RegInterfacefifo:fifo_inst_ch3                                                                                  ; PWM_RegInterfacefifo ; work         ;
+;       |sync_fifo:duty_cycle_fifo|            ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo                                                        ; sync_fifo            ; work         ;
+;          |altsyncram:r_fifo_rtl_0|           ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0                                ; altsyncram           ; work         ;
+;             |altsyncram_2qp1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0|altsyncram_2qp1:auto_generated ; altsyncram_2qp1      ; work         ;
+;    |PWM_RegInterfacefifo:fifo_inst_ch4|      ; 1 (0)               ; 8 (8)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|PWM_RegInterfacefifo:fifo_inst_ch4                                                                                  ; PWM_RegInterfacefifo ; work         ;
+;       |sync_fifo:duty_cycle_fifo|            ; 1 (1)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo                                                        ; sync_fifo            ; work         ;
+;          |altsyncram:r_fifo_rtl_0|           ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0                                ; altsyncram           ; work         ;
+;             |altsyncram_2qp1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |top_level|PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0|altsyncram_2qp1:auto_generated ; altsyncram_2qp1      ; work         ;
+;    |Pwm_In:pwm_inst_ch1|                     ; 32 (21)             ; 26 (18)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|Pwm_In:pwm_inst_ch1                                                                                                 ; Pwm_In               ; work         ;
+;       |Timer_In:timer0|                      ; 11 (11)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |top_level|Pwm_In:pwm_inst_ch1|Timer_In:timer0                                                                                 ; Timer_In             ; work         ;
+;    |Pwm_In:pwm_inst_ch2|                     ; 5 (5)               ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|Pwm_In:pwm_inst_ch2                                                                                                 ; Pwm_In               ; work         ;
+;    |Pwm_In:pwm_inst_ch3|                     ; 5 (5)               ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|Pwm_In:pwm_inst_ch3                                                                                                 ; Pwm_In               ; work         ;
+;    |Pwm_In:pwm_inst_ch4|                     ; 5 (5)               ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|Pwm_In:pwm_inst_ch4                                                                                                 ; Pwm_In               ; work         ;
+;    |spi_slave:spi_inst|                      ; 17 (17)             ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |top_level|spi_slave:spi_inst                                                                                                  ; spi_slave            ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                   ;
++--------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                                                                           ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++--------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0|altsyncram_2qp1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 8            ; 8            ; 8            ; 8            ; 64   ; None ;
+; PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0|altsyncram_2qp1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 8            ; 8            ; 8            ; 8            ; 64   ; None ;
+; PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0|altsyncram_2qp1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 8            ; 8            ; 8            ; 8            ; 64   ; None ;
+; PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0|altsyncram_2qp1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 8            ; 8            ; 8            ; 8            ; 64   ; None ;
++--------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                            ;
++---------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------+
+; Register name                                                                   ; Reason for Removal                                                                          ;
++---------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------+
+; PWM_RegInterfacefifo:fifo_inst_ch4|o_duty_cycle[8]                              ; Stuck at GND due to stuck port data_in                                                      ;
+; PWM_RegInterfacefifo:fifo_inst_ch3|o_duty_cycle[8]                              ; Stuck at GND due to stuck port data_in                                                      ;
+; PWM_RegInterfacefifo:fifo_inst_ch2|o_duty_cycle[8]                              ; Stuck at GND due to stuck port data_in                                                      ;
+; PWM_RegInterfacefifo:fifo_inst_ch1|o_duty_cycle[8]                              ; Stuck at GND due to stuck port data_in                                                      ;
+; Pwm_In:pwm_inst_ch4|duty_reg[8]                                                 ; Stuck at GND due to stuck port data_in                                                      ;
+; Pwm_In:pwm_inst_ch3|duty_reg[8]                                                 ; Stuck at GND due to stuck port data_in                                                      ;
+; Pwm_In:pwm_inst_ch2|duty_reg[8]                                                 ; Stuck at GND due to stuck port data_in                                                      ;
+; Pwm_In:pwm_inst_ch1|duty_reg[8]                                                 ; Stuck at GND due to stuck port data_in                                                      ;
+; Pwm_In:pwm_inst_ch2|Q_Reg[7]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[7]                                                    ;
+; Pwm_In:pwm_inst_ch3|Q_Reg[7]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[7]                                                    ;
+; Pwm_In:pwm_inst_ch4|Q_Reg[7]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[7]                                                    ;
+; Pwm_In:pwm_inst_ch2|Q_Reg[6]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[6]                                                    ;
+; Pwm_In:pwm_inst_ch3|Q_Reg[6]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[6]                                                    ;
+; Pwm_In:pwm_inst_ch4|Q_Reg[6]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[6]                                                    ;
+; Pwm_In:pwm_inst_ch2|Q_Reg[5]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[5]                                                    ;
+; Pwm_In:pwm_inst_ch3|Q_Reg[5]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[5]                                                    ;
+; Pwm_In:pwm_inst_ch4|Q_Reg[5]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[5]                                                    ;
+; Pwm_In:pwm_inst_ch2|Q_Reg[4]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[4]                                                    ;
+; Pwm_In:pwm_inst_ch3|Q_Reg[4]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[4]                                                    ;
+; Pwm_In:pwm_inst_ch4|Q_Reg[4]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[4]                                                    ;
+; Pwm_In:pwm_inst_ch2|Q_Reg[3]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[3]                                                    ;
+; Pwm_In:pwm_inst_ch3|Q_Reg[3]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[3]                                                    ;
+; Pwm_In:pwm_inst_ch4|Q_Reg[3]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[3]                                                    ;
+; Pwm_In:pwm_inst_ch2|Q_Reg[2]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[2]                                                    ;
+; Pwm_In:pwm_inst_ch3|Q_Reg[2]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[2]                                                    ;
+; Pwm_In:pwm_inst_ch4|Q_Reg[2]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[2]                                                    ;
+; Pwm_In:pwm_inst_ch2|Q_Reg[1]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[1]                                                    ;
+; Pwm_In:pwm_inst_ch3|Q_Reg[1]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[1]                                                    ;
+; Pwm_In:pwm_inst_ch4|Q_Reg[1]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[1]                                                    ;
+; Pwm_In:pwm_inst_ch2|Q_Reg[0]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[0]                                                    ;
+; Pwm_In:pwm_inst_ch3|Q_Reg[0]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[0]                                                    ;
+; Pwm_In:pwm_inst_ch4|Q_Reg[0]                                                    ; Merged with Pwm_In:pwm_inst_ch1|Q_Reg[0]                                                    ;
+; Pwm_In:pwm_inst_ch2|Timer_In:timer0|Q_Reg[7]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[7]                                    ;
+; Pwm_In:pwm_inst_ch3|Timer_In:timer0|Q_Reg[7]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[7]                                    ;
+; Pwm_In:pwm_inst_ch4|Timer_In:timer0|Q_Reg[7]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[7]                                    ;
+; Pwm_In:pwm_inst_ch2|Timer_In:timer0|Q_Reg[6]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[6]                                    ;
+; Pwm_In:pwm_inst_ch3|Timer_In:timer0|Q_Reg[6]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[6]                                    ;
+; Pwm_In:pwm_inst_ch4|Timer_In:timer0|Q_Reg[6]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[6]                                    ;
+; Pwm_In:pwm_inst_ch2|Timer_In:timer0|Q_Reg[5]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[5]                                    ;
+; Pwm_In:pwm_inst_ch3|Timer_In:timer0|Q_Reg[5]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[5]                                    ;
+; Pwm_In:pwm_inst_ch4|Timer_In:timer0|Q_Reg[5]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[5]                                    ;
+; Pwm_In:pwm_inst_ch2|Timer_In:timer0|Q_Reg[4]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[4]                                    ;
+; Pwm_In:pwm_inst_ch3|Timer_In:timer0|Q_Reg[4]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[4]                                    ;
+; Pwm_In:pwm_inst_ch4|Timer_In:timer0|Q_Reg[4]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[4]                                    ;
+; Pwm_In:pwm_inst_ch2|Timer_In:timer0|Q_Reg[3]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[3]                                    ;
+; Pwm_In:pwm_inst_ch3|Timer_In:timer0|Q_Reg[3]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[3]                                    ;
+; Pwm_In:pwm_inst_ch4|Timer_In:timer0|Q_Reg[3]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[3]                                    ;
+; Pwm_In:pwm_inst_ch2|Timer_In:timer0|Q_Reg[2]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[2]                                    ;
+; Pwm_In:pwm_inst_ch3|Timer_In:timer0|Q_Reg[2]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[2]                                    ;
+; Pwm_In:pwm_inst_ch4|Timer_In:timer0|Q_Reg[2]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[2]                                    ;
+; Pwm_In:pwm_inst_ch2|Timer_In:timer0|Q_Reg[1]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[1]                                    ;
+; Pwm_In:pwm_inst_ch3|Timer_In:timer0|Q_Reg[1]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[1]                                    ;
+; Pwm_In:pwm_inst_ch4|Timer_In:timer0|Q_Reg[1]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[1]                                    ;
+; Pwm_In:pwm_inst_ch2|Timer_In:timer0|Q_Reg[0]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[0]                                    ;
+; Pwm_In:pwm_inst_ch3|Timer_In:timer0|Q_Reg[0]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[0]                                    ;
+; Pwm_In:pwm_inst_ch4|Timer_In:timer0|Q_Reg[0]                                    ; Merged with Pwm_In:pwm_inst_ch1|Timer_In:timer0|Q_Reg[0]                                    ;
+; PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:switch_freq_fifo|r_count[3]        ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[3]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo|r_count[3]         ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[3]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:switch_freq_fifo|r_count[3]        ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[3]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo|r_count[3]         ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[3]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:switch_freq_fifo|r_count[3]        ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[3]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|r_count[3]         ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[3]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:switch_freq_fifo|r_count[3]        ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[3]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:switch_freq_fifo|r_count[2]        ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[2]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo|r_count[2]         ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[2]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:switch_freq_fifo|r_count[2]        ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[2]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo|r_count[2]         ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[2]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:switch_freq_fifo|r_count[2]        ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[2]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|r_count[2]         ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[2]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:switch_freq_fifo|r_count[2]        ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[2]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:switch_freq_fifo|r_count[1]        ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[1]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo|r_count[1]         ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[1]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:switch_freq_fifo|r_count[1]        ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[1]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo|r_count[1]         ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[1]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:switch_freq_fifo|r_count[1]        ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[1]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|r_count[1]         ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[1]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:switch_freq_fifo|r_count[1]        ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[1]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:switch_freq_fifo|r_count[0]        ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[0]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo|r_count[0]         ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[0]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:switch_freq_fifo|r_count[0]        ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[0]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo|r_count[0]         ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[0]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:switch_freq_fifo|r_count[0]        ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[0]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|r_count[0]         ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[0]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:switch_freq_fifo|r_count[0]        ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[0]         ;
+; PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo|r_write_pointer[0] ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_write_pointer[0] ;
+; PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo|r_write_pointer[0] ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_write_pointer[0] ;
+; PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|r_write_pointer[0] ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_write_pointer[0] ;
+; PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo|r_write_pointer[1] ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_write_pointer[1] ;
+; PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo|r_write_pointer[1] ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_write_pointer[1] ;
+; PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|r_write_pointer[1] ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_write_pointer[1] ;
+; PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo|r_write_pointer[2] ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_write_pointer[2] ;
+; PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo|r_write_pointer[2] ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_write_pointer[2] ;
+; PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|r_write_pointer[2] ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_write_pointer[2] ;
+; PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo|r_read_pointer[0]  ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_read_pointer[0]  ;
+; PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo|r_read_pointer[0]  ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_read_pointer[0]  ;
+; PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|r_read_pointer[0]  ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_read_pointer[0]  ;
+; PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo|r_read_pointer[1]  ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_read_pointer[1]  ;
+; PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo|r_read_pointer[1]  ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_read_pointer[1]  ;
+; PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|r_read_pointer[1]  ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_read_pointer[1]  ;
+; PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo|r_read_pointer[2]  ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_read_pointer[2]  ;
+; PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo|r_read_pointer[2]  ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_read_pointer[2]  ;
+; PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|r_read_pointer[2]  ; Merged with PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_read_pointer[2]  ;
+; Total Number of Removed Registers = 102                                         ;                                                                                             ;
++---------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                             ;
++----------------------------------------------------+---------------------------+----------------------------------------+
+; Register name                                      ; Reason for Removal        ; Registers Removed due to This Register ;
++----------------------------------------------------+---------------------------+----------------------------------------+
+; PWM_RegInterfacefifo:fifo_inst_ch4|o_duty_cycle[8] ; Stuck at GND              ; Pwm_In:pwm_inst_ch4|duty_reg[8]        ;
+;                                                    ; due to stuck port data_in ;                                        ;
+; PWM_RegInterfacefifo:fifo_inst_ch3|o_duty_cycle[8] ; Stuck at GND              ; Pwm_In:pwm_inst_ch3|duty_reg[8]        ;
+;                                                    ; due to stuck port data_in ;                                        ;
+; PWM_RegInterfacefifo:fifo_inst_ch2|o_duty_cycle[8] ; Stuck at GND              ; Pwm_In:pwm_inst_ch2|duty_reg[8]        ;
+;                                                    ; due to stuck port data_in ;                                        ;
+; PWM_RegInterfacefifo:fifo_inst_ch1|o_duty_cycle[8] ; Stuck at GND              ; Pwm_In:pwm_inst_ch1|duty_reg[8]        ;
+;                                                    ; due to stuck port data_in ;                                        ;
++----------------------------------------------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 130   ;
+; Number of registers using Synchronous Clear  ; 41    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 88    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 107   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; Pwm_In:pwm_inst_ch1|Q_Reg[4]           ; 5       ;
+; Pwm_In:pwm_inst_ch1|Q_Reg[7]           ; 9       ;
+; Pwm_In:pwm_inst_ch1|Q_Reg[6]           ; 9       ;
+; Pwm_In:pwm_inst_ch1|Q_Reg[5]           ; 9       ;
+; Pwm_In:pwm_inst_ch1|Q_Reg[3]           ; 5       ;
+; Pwm_In:pwm_inst_ch1|Q_Reg[2]           ; 5       ;
+; Pwm_In:pwm_inst_ch1|Q_Reg[1]           ; 5       ;
+; Pwm_In:pwm_inst_ch1|Q_Reg[0]           ; 6       ;
+; Total number of inverted registers = 8 ;         ;
++----------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                                                                                                 ;
++---------------------------------------------------------------------------+---------------------------------------------------------------------------+------+
+; Register Name                                                             ; Megafunction                                                              ; Type ;
++---------------------------------------------------------------------------+---------------------------------------------------------------------------+------+
+; PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|o_fifo[0..7] ; PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|r_fifo_rtl_0 ; RAM  ;
+; PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo|o_fifo[0..7] ; PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo|r_fifo_rtl_0 ; RAM  ;
+; PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo|o_fifo[0..7] ; PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo|r_fifo_rtl_0 ; RAM  ;
+; PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|o_fifo[0..7] ; PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_fifo_rtl_0 ; RAM  ;
++---------------------------------------------------------------------------+---------------------------------------------------------------------------+------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_level|PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_count[3] ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |top_level|spi_slave:spi_inst|o_rx_data[2]                                         ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |top_level|spi_slave:spi_inst|r_shift_miso[2]                                      ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |top_level|spi_slave:spi_inst|r_shift_mosi[6]                                      ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; Yes        ; |top_level|spi_slave:spi_inst|r_rx_counter[0]                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0|altsyncram_2qp1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                           ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                            ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0|altsyncram_2qp1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                           ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                            ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0|altsyncram_2qp1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                           ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                            ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0|altsyncram_2qp1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                           ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                            ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |top_level ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; width          ; 8     ; Signed Integer                                   ;
+; TimerBits      ; 8     ; Signed Integer                                   ;
+; CPOL           ; 0     ; Unsigned Binary                                  ;
+; CPHA           ; 0     ; Unsigned Binary                                  ;
+; LSB            ; 0     ; Unsigned Binary                                  ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: spi_slave:spi_inst ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; CPOL           ; 0     ; Unsigned Binary                        ;
+; CPHA           ; 0     ; Unsigned Binary                        ;
+; WIDTH          ; 8     ; Signed Integer                         ;
+; LSB            ; 0     ; Unsigned Binary                        ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch1 ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                                                   ;
+; DEPTH          ; 8     ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:switch_freq_fifo ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                              ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                                                    ;
+; DEPTH          ; 8     ; Signed Integer                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Pwm_In:pwm_inst_ch1 ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; R              ; 8     ; Signed Integer                          ;
+; TimerBits      ; 8     ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Pwm_In:pwm_inst_ch1|Timer_In:timer0 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; Bits           ; 8     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch2 ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                                                   ;
+; DEPTH          ; 8     ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:switch_freq_fifo ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                              ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                                                    ;
+; DEPTH          ; 8     ; Signed Integer                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Pwm_In:pwm_inst_ch2 ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; R              ; 8     ; Signed Integer                          ;
+; TimerBits      ; 8     ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Pwm_In:pwm_inst_ch2|Timer_In:timer0 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; Bits           ; 8     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch3 ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                                                   ;
+; DEPTH          ; 8     ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:switch_freq_fifo ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                              ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                                                    ;
+; DEPTH          ; 8     ; Signed Integer                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Pwm_In:pwm_inst_ch3 ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; R              ; 8     ; Signed Integer                          ;
+; TimerBits      ; 8     ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Pwm_In:pwm_inst_ch3|Timer_In:timer0 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; Bits           ; 8     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch4 ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                                                   ;
+; DEPTH          ; 8     ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:switch_freq_fifo ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                              ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                                                    ;
+; DEPTH          ; 8     ; Signed Integer                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Pwm_In:pwm_inst_ch4 ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; R              ; 8     ; Signed Integer                          ;
+; TimerBits      ; 8     ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Pwm_In:pwm_inst_ch4|Timer_In:timer0 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; Bits           ; 8     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0 ;
++------------------------------------+----------------------+---------------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                                      ;
++------------------------------------+----------------------+---------------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                                   ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                                ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                              ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                              ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                            ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                                   ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                                                   ;
+; WIDTH_A                            ; 8                    ; Untyped                                                                   ;
+; WIDTHAD_A                          ; 3                    ; Untyped                                                                   ;
+; NUMWORDS_A                         ; 8                    ; Untyped                                                                   ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                                   ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                                   ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                                   ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                                   ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                                   ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                                   ;
+; WIDTH_B                            ; 8                    ; Untyped                                                                   ;
+; WIDTHAD_B                          ; 3                    ; Untyped                                                                   ;
+; NUMWORDS_B                         ; 8                    ; Untyped                                                                   ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                                   ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                                   ;
+; RDCONTROL_REG_B                    ; CLOCK0               ; Untyped                                                                   ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                                                   ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                                   ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                                   ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                                   ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                   ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                                   ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                                   ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                   ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                                   ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                                                   ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                                   ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                                   ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                                   ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped                                                                   ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                   ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                   ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                                                   ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                                   ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                                   ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                                                   ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                                   ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                                                   ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                                   ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                                   ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                                   ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                                   ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                                   ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                                   ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                                   ;
+; CBXI_PARAMETER                     ; altsyncram_2qp1      ; Untyped                                                                   ;
++------------------------------------+----------------------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0 ;
++------------------------------------+----------------------+---------------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                                      ;
++------------------------------------+----------------------+---------------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                                   ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                                ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                              ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                              ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                            ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                                   ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                                                   ;
+; WIDTH_A                            ; 8                    ; Untyped                                                                   ;
+; WIDTHAD_A                          ; 3                    ; Untyped                                                                   ;
+; NUMWORDS_A                         ; 8                    ; Untyped                                                                   ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                                   ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                                   ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                                   ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                                   ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                                   ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                                   ;
+; WIDTH_B                            ; 8                    ; Untyped                                                                   ;
+; WIDTHAD_B                          ; 3                    ; Untyped                                                                   ;
+; NUMWORDS_B                         ; 8                    ; Untyped                                                                   ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                                   ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                                   ;
+; RDCONTROL_REG_B                    ; CLOCK0               ; Untyped                                                                   ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                                                   ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                                   ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                                   ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                                   ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                   ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                                   ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                                   ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                   ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                                   ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                                                   ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                                   ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                                   ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                                   ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped                                                                   ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                   ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                   ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                                                   ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                                   ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                                   ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                                                   ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                                   ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                                                   ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                                   ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                                   ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                                   ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                                   ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                                   ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                                   ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                                   ;
+; CBXI_PARAMETER                     ; altsyncram_2qp1      ; Untyped                                                                   ;
++------------------------------------+----------------------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0 ;
++------------------------------------+----------------------+---------------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                                      ;
++------------------------------------+----------------------+---------------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                                   ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                                ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                              ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                              ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                            ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                                   ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                                                   ;
+; WIDTH_A                            ; 8                    ; Untyped                                                                   ;
+; WIDTHAD_A                          ; 3                    ; Untyped                                                                   ;
+; NUMWORDS_A                         ; 8                    ; Untyped                                                                   ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                                   ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                                   ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                                   ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                                   ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                                   ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                                   ;
+; WIDTH_B                            ; 8                    ; Untyped                                                                   ;
+; WIDTHAD_B                          ; 3                    ; Untyped                                                                   ;
+; NUMWORDS_B                         ; 8                    ; Untyped                                                                   ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                                   ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                                   ;
+; RDCONTROL_REG_B                    ; CLOCK0               ; Untyped                                                                   ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                                                   ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                                   ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                                   ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                                   ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                   ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                                   ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                                   ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                   ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                                   ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                                                   ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                                   ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                                   ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                                   ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped                                                                   ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                   ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                   ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                                                   ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                                   ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                                   ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                                                   ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                                   ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                                                   ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                                   ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                                   ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                                   ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                                   ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                                   ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                                   ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                                   ;
+; CBXI_PARAMETER                     ; altsyncram_2qp1      ; Untyped                                                                   ;
++------------------------------------+----------------------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0 ;
++------------------------------------+----------------------+---------------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                                      ;
++------------------------------------+----------------------+---------------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                                   ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                                ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                              ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                              ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                            ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                                   ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                                                   ;
+; WIDTH_A                            ; 8                    ; Untyped                                                                   ;
+; WIDTHAD_A                          ; 3                    ; Untyped                                                                   ;
+; NUMWORDS_A                         ; 8                    ; Untyped                                                                   ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                                   ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                                   ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                                   ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                                   ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                                   ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                                   ;
+; WIDTH_B                            ; 8                    ; Untyped                                                                   ;
+; WIDTHAD_B                          ; 3                    ; Untyped                                                                   ;
+; NUMWORDS_B                         ; 8                    ; Untyped                                                                   ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                                   ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                                   ;
+; RDCONTROL_REG_B                    ; CLOCK0               ; Untyped                                                                   ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                                                   ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                                   ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                                   ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                                   ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                   ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                                   ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                                   ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                   ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                                   ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                                                   ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                                   ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                                   ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                                   ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped                                                                   ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                   ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                   ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                                                   ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                                   ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                                   ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                                                   ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                                   ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                                                   ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                                   ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                                   ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                                   ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                                   ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                                   ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                                   ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                                   ;
+; CBXI_PARAMETER                     ; altsyncram_2qp1      ; Untyped                                                                   ;
++------------------------------------+----------------------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                                 ;
++-------------------------------------------+--------------------------------------------------------------------------------------+
+; Name                                      ; Value                                                                                ;
++-------------------------------------------+--------------------------------------------------------------------------------------+
+; Number of entity instances                ; 4                                                                                    ;
+; Entity Instance                           ; PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                                            ;
+;     -- WIDTH_A                            ; 8                                                                                    ;
+;     -- NUMWORDS_A                         ; 8                                                                                    ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                         ;
+;     -- WIDTH_B                            ; 8                                                                                    ;
+;     -- NUMWORDS_B                         ; 8                                                                                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                                               ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                         ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                 ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                                                             ;
+; Entity Instance                           ; PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                                            ;
+;     -- WIDTH_A                            ; 8                                                                                    ;
+;     -- NUMWORDS_A                         ; 8                                                                                    ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                         ;
+;     -- WIDTH_B                            ; 8                                                                                    ;
+;     -- NUMWORDS_B                         ; 8                                                                                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                                               ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                         ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                 ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                                                             ;
+; Entity Instance                           ; PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                                            ;
+;     -- WIDTH_A                            ; 8                                                                                    ;
+;     -- NUMWORDS_A                         ; 8                                                                                    ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                         ;
+;     -- WIDTH_B                            ; 8                                                                                    ;
+;     -- NUMWORDS_B                         ; 8                                                                                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                                               ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                         ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                 ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                                                             ;
+; Entity Instance                           ; PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                                            ;
+;     -- WIDTH_A                            ; 8                                                                                    ;
+;     -- NUMWORDS_A                         ; 8                                                                                    ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                         ;
+;     -- WIDTH_B                            ; 8                                                                                    ;
+;     -- NUMWORDS_B                         ; 8                                                                                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                                               ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                         ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                 ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                                                             ;
++-------------------------------------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "Pwm_In:pwm_inst_ch4"     ;
++-------------------+-------+----------+--------------+
+; Port              ; Type  ; Severity ; Details      ;
++-------------------+-------+----------+--------------+
+; Final_Value[1..0] ; Input ; Info     ; Stuck at VCC ;
+; Final_Value[7..6] ; Input ; Info     ; Stuck at GND ;
+; Final_Value[4..2] ; Input ; Info     ; Stuck at GND ;
+; Final_Value[5]    ; Input ; Info     ; Stuck at VCC ;
++-------------------+-------+----------+--------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "PWM_RegInterfacefifo:fifo_inst_ch4"                                                               ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port               ; Type   ; Severity ; Details                                                                             ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; i_period_start     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_switch_freq      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; o_duty_cycle_done  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; o_switch_freq_done ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "Pwm_In:pwm_inst_ch3"     ;
++-------------------+-------+----------+--------------+
+; Port              ; Type  ; Severity ; Details      ;
++-------------------+-------+----------+--------------+
+; Final_Value[1..0] ; Input ; Info     ; Stuck at VCC ;
+; Final_Value[7..6] ; Input ; Info     ; Stuck at GND ;
+; Final_Value[4..2] ; Input ; Info     ; Stuck at GND ;
+; Final_Value[5]    ; Input ; Info     ; Stuck at VCC ;
++-------------------+-------+----------+--------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "PWM_RegInterfacefifo:fifo_inst_ch3"                                                               ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port               ; Type   ; Severity ; Details                                                                             ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; i_period_start     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_switch_freq      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; o_duty_cycle_done  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; o_switch_freq_done ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "Pwm_In:pwm_inst_ch2"     ;
++-------------------+-------+----------+--------------+
+; Port              ; Type  ; Severity ; Details      ;
++-------------------+-------+----------+--------------+
+; Final_Value[1..0] ; Input ; Info     ; Stuck at VCC ;
+; Final_Value[7..6] ; Input ; Info     ; Stuck at GND ;
+; Final_Value[4..2] ; Input ; Info     ; Stuck at GND ;
+; Final_Value[5]    ; Input ; Info     ; Stuck at VCC ;
++-------------------+-------+----------+--------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "PWM_RegInterfacefifo:fifo_inst_ch2"                                                               ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port               ; Type   ; Severity ; Details                                                                             ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; i_period_start     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_switch_freq      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; o_duty_cycle_done  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; o_switch_freq_done ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------+
+; Port Connectivity Checks: "Pwm_In:pwm_inst_ch1|Timer_In:timer0" ;
++--------+-------+----------+-------------------------------------+
+; Port   ; Type  ; Severity ; Details                             ;
++--------+-------+----------+-------------------------------------+
+; enable ; Input ; Info     ; Stuck at VCC                        ;
++--------+-------+----------+-------------------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "Pwm_In:pwm_inst_ch1"     ;
++-------------------+-------+----------+--------------+
+; Port              ; Type  ; Severity ; Details      ;
++-------------------+-------+----------+--------------+
+; Final_Value[1..0] ; Input ; Info     ; Stuck at VCC ;
+; Final_Value[7..6] ; Input ; Info     ; Stuck at GND ;
+; Final_Value[4..2] ; Input ; Info     ; Stuck at GND ;
+; Final_Value[5]    ; Input ; Info     ; Stuck at VCC ;
++-------------------+-------+----------+--------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:switch_freq_fifo" ;
++-------------+--------+----------+---------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                 ;
++-------------+--------+----------+---------------------------------------------------------+
+; o_fifo_full ; Output ; Info     ; Explicitly unconnected                                  ;
++-------------+--------+----------+---------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo" ;
++-------------+--------+----------+--------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                ;
++-------------+--------+----------+--------------------------------------------------------+
+; o_fifo_full ; Output ; Info     ; Explicitly unconnected                                 ;
++-------------+--------+----------+--------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "PWM_RegInterfacefifo:fifo_inst_ch1"                                                               ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port               ; Type   ; Severity ; Details                                                                             ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; i_period_start     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_switch_freq      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; o_duty_cycle_done  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; o_switch_freq_done ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "spi_slave:spi_inst"                                                                      ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; o_miso_oe ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; o_tx_int  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 130                         ;
+;     CLR               ; 4                           ;
+;     CLR SCLR          ; 8                           ;
+;     ENA               ; 7                           ;
+;     ENA CLR           ; 76                          ;
+;     ENA SCLR          ; 24                          ;
+;     SCLR              ; 9                           ;
+;     plain             ; 2                           ;
+; arriav_lcell_comb     ; 76                          ;
+;     arith             ; 15                          ;
+;         1 data inputs ; 14                          ;
+;         2 data inputs ; 1                           ;
+;     extend            ; 3                           ;
+;         7 data inputs ; 3                           ;
+;     normal            ; 58                          ;
+;         1 data inputs ; 9                           ;
+;         2 data inputs ; 11                          ;
+;         3 data inputs ; 5                           ;
+;         4 data inputs ; 9                           ;
+;         5 data inputs ; 11                          ;
+;         6 data inputs ; 13                          ;
+; boundary_port         ; 23                          ;
+; stratixv_ram_block    ; 32                          ;
+;                       ;                             ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 1.25                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+    Info: Processing started: Fri Aug  9 12:37:05 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off asf -c asf
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/top_level.v
+    Info (12023): Found entity 1: top_level File: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/top_level.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/Timer_In.v
+    Info (12023): Found entity 1: Timer_In File: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/Timer_In.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/sync_fifo .v
+    Info (12023): Found entity 1: sync_fifo File: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/sync_fifo .v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/spi_slave .v
+    Info (12023): Found entity 1: spi_slave File: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/spi_slave .v Line: 4
+Warning (12019): Can't analyze file -- file ../project_1/project_1.srcs/sources_1/imports/code/spi_master.v is missing
+Info (12021): Found 1 design units, including 1 entities, in source file /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/PWM_RegInterfacefifo.v
+    Info (12023): Found entity 1: PWM_RegInterfacefifo File: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/PWM_RegInterfacefifo.v Line: 2
+Warning (12019): Can't analyze file -- file ../project_1/project_1.srcs/sources_1/imports/code/PWM_RegInterface.v is missing
+Info (12021): Found 1 design units, including 1 entities, in source file /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/Pwm_In.v
+    Info (12023): Found entity 1: Pwm_In File: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/Pwm_In.v Line: 4
+Info (12127): Elaborating entity "top_level" for the top level hierarchy
+Info (12128): Elaborating entity "spi_slave" for hierarchy "spi_slave:spi_inst" File: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/top_level.v Line: 70
+Warning (10230): Verilog HDL assignment warning at spi_slave .v(96): truncated value with size 32 to match size of target (3) File: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/spi_slave .v Line: 96
+Info (12128): Elaborating entity "PWM_RegInterfacefifo" for hierarchy "PWM_RegInterfacefifo:fifo_inst_ch1" File: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/top_level.v Line: 87
+Info (12128): Elaborating entity "sync_fifo" for hierarchy "PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo" File: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/PWM_RegInterfacefifo.v Line: 36
+Warning (10230): Verilog HDL assignment warning at sync_fifo .v(32): truncated value with size 32 to match size of target (4) File: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/sync_fifo .v Line: 32
+Warning (10230): Verilog HDL assignment warning at sync_fifo .v(33): truncated value with size 32 to match size of target (4) File: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/sync_fifo .v Line: 33
+Warning (10230): Verilog HDL assignment warning at sync_fifo .v(47): truncated value with size 32 to match size of target (3) File: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/sync_fifo .v Line: 47
+Warning (10230): Verilog HDL assignment warning at sync_fifo .v(60): truncated value with size 32 to match size of target (3) File: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/sync_fifo .v Line: 60
+Info (12128): Elaborating entity "Pwm_In" for hierarchy "Pwm_In:pwm_inst_ch1" File: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/top_level.v Line: 97
+Warning (10230): Verilog HDL assignment warning at Pwm_In.v(58): truncated value with size 32 to match size of target (8) File: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/Pwm_In.v Line: 58
+Info (12128): Elaborating entity "Timer_In" for hierarchy "Pwm_In:pwm_inst_ch1|Timer_In:timer0" File: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/Pwm_In.v Line: 72
+Warning (10230): Verilog HDL assignment warning at Timer_In.v(30): truncated value with size 32 to match size of target (8) File: /home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/Timer_In.v Line: 30
+Info (19000): Inferred 4 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|r_fifo_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 8
+        Info (286033): Parameter WIDTHAD_A set to 3
+        Info (286033): Parameter NUMWORDS_A set to 8
+        Info (286033): Parameter WIDTH_B set to 8
+        Info (286033): Parameter WIDTHAD_B set to 3
+        Info (286033): Parameter NUMWORDS_B set to 8
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+        Info (286033): Parameter RDCONTROL_REG_B set to CLOCK0
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "PWM_RegInterfacefifo:fifo_inst_ch3|sync_fifo:duty_cycle_fifo|r_fifo_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 8
+        Info (286033): Parameter WIDTHAD_A set to 3
+        Info (286033): Parameter NUMWORDS_A set to 8
+        Info (286033): Parameter WIDTH_B set to 8
+        Info (286033): Parameter WIDTHAD_B set to 3
+        Info (286033): Parameter NUMWORDS_B set to 8
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+        Info (286033): Parameter RDCONTROL_REG_B set to CLOCK0
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "PWM_RegInterfacefifo:fifo_inst_ch2|sync_fifo:duty_cycle_fifo|r_fifo_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 8
+        Info (286033): Parameter WIDTHAD_A set to 3
+        Info (286033): Parameter NUMWORDS_A set to 8
+        Info (286033): Parameter WIDTH_B set to 8
+        Info (286033): Parameter WIDTHAD_B set to 3
+        Info (286033): Parameter NUMWORDS_B set to 8
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+        Info (286033): Parameter RDCONTROL_REG_B set to CLOCK0
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "PWM_RegInterfacefifo:fifo_inst_ch1|sync_fifo:duty_cycle_fifo|r_fifo_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 8
+        Info (286033): Parameter WIDTHAD_A set to 3
+        Info (286033): Parameter NUMWORDS_A set to 8
+        Info (286033): Parameter WIDTH_B set to 8
+        Info (286033): Parameter WIDTHAD_B set to 3
+        Info (286033): Parameter NUMWORDS_B set to 8
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+        Info (286033): Parameter RDCONTROL_REG_B set to CLOCK0
+Info (12130): Elaborated megafunction instantiation "PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0"
+Info (12133): Instantiated megafunction "PWM_RegInterfacefifo:fifo_inst_ch4|sync_fifo:duty_cycle_fifo|altsyncram:r_fifo_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "8"
+    Info (12134): Parameter "WIDTHAD_A" = "3"
+    Info (12134): Parameter "NUMWORDS_A" = "8"
+    Info (12134): Parameter "WIDTH_B" = "8"
+    Info (12134): Parameter "WIDTHAD_B" = "3"
+    Info (12134): Parameter "NUMWORDS_B" = "8"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+    Info (12134): Parameter "RDCONTROL_REG_B" = "CLOCK0"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_2qp1.tdf
+    Info (12023): Found entity 1: altsyncram_2qp1 File: /home/jam/Downloads/PWM/projectPWM_solution/code/q2/db/altsyncram_2qp1.tdf Line: 28
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 225 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 14 input pins
+    Info (21059): Implemented 9 output pins
+    Info (21061): Implemented 170 logic cells
+    Info (21064): Implemented 32 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
+    Info: Peak virtual memory: 464 megabytes
+    Info: Processing ended: Fri Aug  9 12:37:13 2024
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:19
+
+

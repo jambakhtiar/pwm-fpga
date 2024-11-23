@@ -1,0 +1,16 @@
+0.7
+2020.2
+Oct 13 2023
+20:21:30
+/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.sim/sim_1/behav/xsim/glbl.v,1697210495,verilog,,,,glbl,,,,,,,,
+/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sim_1/new/tb_PWM_RegInterfacefifo.v,1723181840,verilog,,,,tb_PWM_RegInterfacefifo,,,,,,,,
+/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/PWM_RegInterfacefifo.v,1723180960,verilog,,/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/Pwm_In.v,,PWM_RegInterfacefifo,,,,,,,,
+/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/PwmIn_tb.v,1722950364,verilog,,,,PwmIn_tb,,,,,,,,
+/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/Pwm_In.v,1723188392,verilog,,/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/Timer_In.v,,Pwm_In,,,,,,,,
+/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/Timer_In.v,1722949618,verilog,,/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/spi_slave .v,,Timer_In,,,,,,,,
+/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/spi_slave .v,1722950428,verilog,,/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/sync_fifo .v,,spi_slave,,,,,,,,
+/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/spi_slave_tb.v,1722949804,verilog,,,,spi_slave_tb,,,,,,,,
+/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/sync_fifo .v,1722949875,verilog,,/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/top_level.v,,sync_fifo,,,,,,,,
+/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/sync_fifo_tb.v,1722949881,verilog,,,,sync_fifo_tb,,,,,,,,
+/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/top_level.v,1723185342,verilog,,/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/top_level_tb.v,,top_level,,,,,,,,
+/home/jam/Downloads/PWM/projectPWM_solution/code/project_1/project_1.srcs/sources_1/imports/code/top_level_tb.v,1723188929,verilog,,,,top_level_tb,,,,,,,,
